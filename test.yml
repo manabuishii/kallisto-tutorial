@@ -1,0 +1,22 @@
+- job: kallisto-tutorial.yml
+  tool: kallisto-tutorial.cwl
+  output:
+    barcode:
+      class: File
+      location: genes.barcodes.txt
+      checksum: sha1$cc007f99233fa0424abcfd417e525bc73ed42bf5
+      size: 1613402
+    genes:
+      class: File
+      location: genes.genes.txt
+      checksum: sha1$ff8317891428f3eca404bc7878dd64915892df92
+      size: 768148
+    mtx:
+      class: File
+      location: genes.mtx
+      checksum: sha1$a09405f82d44a1e53ecaeea2eab54b1bf61e0793
+      size: 21676180
+  label: cl_basic_generation
+  id: 1
+  doc: General test of command line generation
+  tags: [ required ]
