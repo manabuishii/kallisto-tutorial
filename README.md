@@ -1,8 +1,31 @@
-# 今日やること
+# かいてあること
 
 - [Kallisto のチュートリアル](https://www.kallistobus.tools/getting_started.html)
   - これを CWLワークフローにする
   - ダウンロードして、gunzipやってあるとする。
+
+# ツールのバージョン
+
+- kallisto 0.45.0
+  - `quay.io/biocontainers/kallisto:0.45.0--hdcc98e5_0`
+- bustools 0.39.3
+  - この repository にある Dockerfile
+  - もともとは、 bioconda にある。
+
+# テストの実行方法
+
+## cwltest
+
+```
+cwltest --test test.yml
+```
+
+## CircleCIをローカル実行する
+
+```
+circleci local execute --job buildlocal
+```
+
 
 流れとしては
 - CWL CommandLineToolで、チュートリアルの各ステップのコマンドを書く
@@ -25,9 +48,15 @@
 ##  ワークフロー書き方の手順
 
 1. ヘッダを書く
-  - `cwlVersion: v1.0`
-  - `class: Workflow`
-  - `doc: the workflow to analyze hogehoge`
+
+```yaml
+cwlVersion: v1.0
+class: Workflow
+doc: the workflow to analyze hogehoge
+inputs: []
+steps: []
+outputs: []
+```
 2. `steps` の `id` を全部書く
 3. 各 `step` の `run` に実行すべき CommandLineTool の CWL ファイルを指定する
 4. `run` に指定した CommandLineTool 定義を参照して、各CWLの `outputs` を全部 `step` の `out` に書く
