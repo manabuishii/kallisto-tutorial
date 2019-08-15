@@ -1,0 +1,15 @@
+transcripts_to_genes:  # type "File"
+    class: File
+    path: transcripts_to_genes.txt
+whitelist:  # type "File"
+    class: File
+    path: 10xv2_whitelist.txt
+fastq1:  # type "File"
+    class: File
+    path: SRR8599150_S1_L001_R1_001.fastq.gz
+fastq2:  # type "File"
+    class: File
+    path: SRR8599150_S1_L001_R2_001.fastq.gz
+fasta:  # type "File"
+    class: File
+    path: Mus_musculus.GRCm38.cdna.all.fa
