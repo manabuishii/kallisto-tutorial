@@ -6,7 +6,7 @@ references:
       command: "git clone $CIRCLE_REPOSITORY_URL /tmp/_circleci_local_build_repo"
     prepare_data: &prepare_test_data
       name: "Prepare test data"
-      command: "./1_download.sh"
+      command: "./1_setup.sh"
     build_container: &build_container
       name: "Build bustools container"
       command: "docker build -t bustools:0.39.3 ."
