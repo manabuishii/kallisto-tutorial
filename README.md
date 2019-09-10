@@ -61,8 +61,9 @@ outputs: []
 3. 各 `step` の `run` に実行すべき CommandLineTool の CWL ファイルを指定する
 4. `run` に指定した CommandLineTool 定義を参照して、各CWLの `outputs` を全部 `step` の `out` に書く
 5. `out` に指定したもののうち、別のツールの `in` になるものを記述する (ツール間の依存関係の解決)
-6. `out` に指定したもののうち、workflow終了時に手元に残っておいてほしいものを `outputs` に書く
-  - 
+6. 実行時に入力されるパラメータを `inputs` に記述する
+7. `inputs` に書いたものを、使用するstepの `in` に書く
+8. `out` に指定したもののうち、workflow終了時に手元に残っておいてほしいものを `outputs` に書く
 
 ## 注意事項
 
