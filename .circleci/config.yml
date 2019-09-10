@@ -24,6 +24,7 @@ references:
     run_test: &run_test
       name: "Run test"
       command: "sudo cwltest --verbose --test test.yml"
+      no_output_timout: 30m
 jobs:
   build:
     working_directory: /tmp/cwl_test
