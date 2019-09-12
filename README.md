@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/manabuishii/kallisto-tutorial.svg?style=svg)](https://circleci.com/gh/manabuishii/kallisto-tutorial)
+
+
 # かいてあること
 
 - [Kallisto のチュートリアル](https://www.kallistobus.tools/getting_started.html)
