@@ -15,16 +15,17 @@ references:
       command: "sudo killall -9 apt-get || true && \
       sudo apt update && \
       sudo apt install -y python3 python3-pip"
+      no_output_timeout: 1s
     exec_upgrade_pip: &exec_upgrade_pip
       name: "Upgrade pip, wheel and setuptools"
       command: "sudo pip3 install -U pip wheel setuptools"
     install_cwl_runner: &install_cwl_runner
       name: "Install cwl-runner"
       command: "sudo pip3 install cwltool cwl-runner cwltest"
+      no_output_timeout: 1s
     run_test: &run_test
       name: "Run test"
       command: "sudo cwltest --verbose --test test.yml"
-      no_output_timout: 30m
 jobs:
   build:
     working_directory: /tmp/cwl_test
@@ -50,4 +51,7 @@ jobs:
       - run: *install_python
       - run: *exec_upgrade_pip
       - run: *install_cwl_runner
-      - run: *run_test
+      - run: 
+          name: "Run test"
+          command: "sudo cwltest --verbose --test test.yml"
+          no_output_timout: 1s
