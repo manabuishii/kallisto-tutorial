@@ -25,7 +25,7 @@ references:
     run_test: &run_test
       name: "Run test"
       command: "sudo cwltest --verbose --test test.yml"
-      no_output_timeout: 1.5h
+      no_output_timeout: 1s
 jobs:
   build:
     working_directory: /tmp/cwl_test
