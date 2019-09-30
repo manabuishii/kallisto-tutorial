@@ -21,10 +21,11 @@ references:
     install_cwl_runner: &install_cwl_runner
       name: "Install cwl-runner"
       command: "sudo pip3 install cwltool cwl-runner cwltest"
+      no_output_timeout: 1.5h
     run_test: &run_test
       name: "Run test"
-      command: "sudo cwltest --verbose --test test.yml"
-      no_output_timout: 30m
+      command: "sudo cwltest --timeout 5400 --verbose --test test.yml"
+      no_output_timeout: 1.5h
 jobs:
   build:
     working_directory: /tmp/cwl_test
@@ -50,4 +51,7 @@ jobs:
       - run: *install_python
       - run: *exec_upgrade_pip
       - run: *install_cwl_runner
-      - run: *run_test
+      - run: 
+          name: "Run test"
+          command: "sudo cwltest --verbose --test test.yml"
+          no_output_timout: 1s
